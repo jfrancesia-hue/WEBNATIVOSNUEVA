@@ -1,0 +1,9 @@
+.env
+config.local.php
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.zip
+.DS_Store
+Thumbs.db
