@@ -34,21 +34,8 @@
       backdrop-filter: blur(16px);
     }
 
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(28px);
-      opacity: 0.34;
-      pointer-events: none;
-    }
-
-    .mockup-card {
-      transform-style: preserve-3d;
-      animation: floatMockup 8s ease-in-out infinite;
-    }
-
     .hero-entry {
-      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.97) 0%, rgba(2, 6, 23, 0.88) 42%, rgba(2, 6, 23, 0.54) 100%), url("assets/visuals/cta-digital-platform-photo.png");
+      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.97) 0%, rgba(2, 6, 23, 0.88) 42%, rgba(2, 6, 23, 0.54) 100%), url("assets/visuals/cta-digital-platform-photo.webp");
       background-size: cover;
       background-position: center;
     }
@@ -184,7 +171,7 @@
     }
 
     .cta-photo {
-      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.78) 38%, rgba(2, 6, 23, 0.34) 100%), url("assets/visuals/cta-digital-platform-photo.png");
+      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.78) 38%, rgba(2, 6, 23, 0.34) 100%), url("assets/visuals/cta-digital-platform-photo.webp");
       background-size: cover;
       background-position: center;
     }
@@ -229,15 +216,6 @@
       filter: blur(0);
     }
 
-    .mockup-card:nth-child(2) { animation-delay: -1.6s; }
-    .mockup-card:nth-child(3) { animation-delay: -3.2s; }
-    .mockup-card:nth-child(4) { animation-delay: -4.8s; }
-
-    @keyframes floatMockup {
-      0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
-      50% { transform: translateY(-10px) rotateX(2deg) rotateY(-2deg); }
-    }
-
     @keyframes floatHeroVisual {
       0%, 100% { transform: rotateX(4deg) rotateY(-5deg) translateY(0); }
       50% { transform: rotateX(2deg) rotateY(-2deg) translateY(-12px); }
@@ -258,7 +236,6 @@
     .modal-scroll::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 999px; }
 
     @media (prefers-reduced-motion: reduce) {
-      .mockup-card,
       .hero-visual-image,
       .floating-chip { animation: none; }
       .reveal-3d {
@@ -616,7 +593,7 @@
         icon: "factory",
         mark: "N360",
         markColor: "from-orange-600 via-slate-800 to-cyan-600",
-        visualAsset: "assets/visuals/nativos360-origenes-industrial-photo.png",
+        visualAsset: "assets/visuals/nativos360-origenes-industrial-photo.webp",
         visualAlt: "Centro de operaciones industriales con dashboards de mineria, petroleo, energia y gestion modular para representar Nativos360 Origenes",
         featured: true
       },
@@ -669,7 +646,7 @@
         icon: "map",
         mark: "P360",
         markColor: "from-orange-600 via-amber-500 to-cyan-500",
-        visualAsset: "assets/visuals/pukara360-command-center-photo.png",
+        visualAsset: "assets/visuals/pukara360-command-center-photo.webp",
         visualAlt: "Centro de control urbano con mapas operativos, transito e incidentes para representar Pukara360",
         featured: true
       },
@@ -689,7 +666,7 @@
         icon: "activity",
         mark: "PULSO",
         markColor: "from-cyan-500 via-blue-600 to-slate-950",
-        visualAsset: "assets/visuals/pulso-health-heart-photo.png",
+        visualAsset: "assets/visuals/pulso-health-heart-photo.webp",
         visualAlt: "Monitor medico con onda de pulso cardiaco y visual de corazon para representar indicadores de salud en Pulso",
         featured: true
       },
@@ -709,7 +686,7 @@
         icon: "accessibility",
         mark: "IncluAI",
         markColor: "from-fuchsia-600 via-cyan-600 to-slate-950",
-        visualAsset: "assets/visuals/incluai-education-photo.png",
+        visualAsset: "assets/visuals/incluai-education-photo.webp",
         visualAlt: "Aula inclusiva con ninos de distintas capacidades trabajando felices junto a su docente para representar IncluAI",
         featured: true
       },
@@ -729,7 +706,7 @@
         icon: "graduation-cap",
         mark: "EducAI",
         markColor: "from-emerald-600 via-cyan-600 to-slate-950",
-        visualAsset: "assets/visuals/educai-teen-education-photo.png",
+        visualAsset: "assets/visuals/educai-teen-education-photo.webp",
         visualAlt: "Aula con adolescentes trabajando con laptops, tablets y docente para representar EducAI y aprendizaje con inteligencia artificial",
         featured: true
       },
@@ -806,7 +783,7 @@
         icon: "handshake",
         mark: "SYA",
         markColor: "from-orange-600 via-slate-700 to-cyan-600",
-        logoAsset: "logo-serviciosya.png",
+        logoAsset: "logo-serviciosya.webp",
         visualAsset: "assets/visuals/servicios-generales-photo.jpg",
         visualAlt: "Foto real de trabajadores de construccion en Buenos Aires, Argentina, para servicios generales y prestadores locales"
       },
@@ -819,14 +796,14 @@
         modules: ["Chat inteligente", "Preguntas frecuentes", "Captura de datos", "Derivacion a WhatsApp", "Base de conocimiento", "Panel de consultas", "Metrica de conversaciones", "Entrenamiento por negocio"],
         useCases: ["Responder consultas frecuentes", "Orientar usuarios antes de hablar con una persona", "Captar oportunidades comerciales", "Ordenar mensajes y derivaciones"],
         internalUrl: "#asesor-virtual",
-        externalUrl: "https://miasesor.com.ar",
+        externalUrl: "https://www.miasesor.com.ar/",
         ctaPrimary: "Ver Asesor Virtual",
         ctaSecondary: "Ir a Mi Asesor",
         visualType: "assistant",
         icon: "bot",
         mark: "AV",
         markColor: "from-cyan-600 via-slate-800 to-orange-500",
-        visualAsset: "assets/visuals/asesor-virtual-photo.png",
+        visualAsset: "assets/visuals/asesor-virtual-photo.webp",
         visualAlt: "Persona trabajando con una interfaz de chat inteligente para representar Asesor Virtual"
       },
       {
@@ -845,7 +822,7 @@
         icon: "baby",
         mark: "NL",
         markColor: "from-rose-500 via-orange-500 to-cyan-600",
-        visualAsset: "assets/visuals/natalia-family-first-childhood-photo.png",
+        visualAsset: "assets/visuals/natalia-family-first-childhood-photo.webp",
         visualAlt: "Familia con embarazo y primera infancia recibiendo orientacion con una tablet para representar NataLia 360"
       }
     ];
@@ -1073,22 +1050,6 @@
       `).join("");
     }
 
-    function renderDesktopMenu() {
-      const menu = document.getElementById("desktop-ecosystem-menu");
-      if (!menu) return;
-      menu.innerHTML = projectsData.map(project => `
-        <a href="${project.internalUrl}" class="group p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-colors focus-ring">
-          <div class="flex gap-3">
-            <span class="shrink-0 w-11 h-11 rounded-xl bg-slate-950 text-orange-300 flex items-center justify-center">${icon(project.icon)}</span>
-            <span>
-              <span class="block font-black text-slate-950 group-hover:text-orange-600">${project.name}</span>
-              <span class="block text-sm text-slate-600 mt-1">${project.tagline}</span>
-            </span>
-          </div>
-        </a>
-      `).join("");
-    }
-
     function openProject(slug) {
       const project = projectsData.find(item => item.slug === slug);
       if (!project) return;
@@ -1198,9 +1159,9 @@
             <div class="w-16 h-16 rounded-2xl bg-cyan-400 text-slate-950 flex items-center justify-center mb-5">${icon("rocket", "w-8 h-8")}</div>
             <h3 class="text-2xl font-black text-slate-950 mb-3">Queres ver oportunidades disponibles?</h3>
             <p class="text-slate-600 leading-relaxed mb-7">La pagina de venta se va a conectar aca para mostrar proyectos, precios, demos y condiciones de compra o implementacion.</p>
-            <a href="nativos-launchpad.html" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-slate-950 px-5 py-3 rounded-xl font-black transition-colors focus-ring">
-              Ir a Nativos Launchpad ${icon("arrow-right", "w-5 h-5")}
-            </a>
+            <button type="button" onclick="startConversation('Quiero conocer Nativos Launchpad y los proyectos disponibles')" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-slate-950 px-5 py-3 rounded-xl font-black transition-colors focus-ring">
+              Pedir acceso a Nativos Launchpad ${icon("arrow-right", "w-5 h-5")}
+            </button>
           </section>
         </div>
       `;
@@ -1268,14 +1229,15 @@
       renderProductLab();
       renderSectors();
       renderProcess();
-      renderDesktopMenu();
       lucide.createIcons();
       initRevealEffects();
       initTiltEffects();
 
       document.getElementById("mobile-toggle").addEventListener("click", () => toggleMobileMenu());
       document.querySelectorAll(".mobile-link").forEach(link => link.addEventListener("click", () => toggleMobileMenu(true)));
-      document.querySelectorAll("[data-close-modal]").forEach(element => element.addEventListener("click", () => showModal(false)));
+      document.addEventListener("click", event => {
+        if (event.target.closest("[data-close-modal]")) showModal(false);
+      });
       document.addEventListener("keydown", event => {
         if (event.key === "Escape") showModal(false);
       });
