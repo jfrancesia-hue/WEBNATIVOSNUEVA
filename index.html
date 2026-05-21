@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nativos Consultora Digital | Ecosistema de plataformas digitales</title>
-  <meta name="description" content="Creamos plataformas propias como Pukara360, Pulso y soluciones digitales para salud, gobierno, educacion y servicios.">
-  <meta name="keywords" content="plataformas digitales, Pukara360, Pulso, salud digital, gobierno digital, educacion digital, servicios digitales, Catamarca, tecnologia, software, inteligencia artificial, territorio, datos">
+  <meta name="description" content="Creamos plataformas propias como Nativos360 Origenes, Pukara360, Pulso, IncluAI, EducAI y soluciones digitales para industria, territorio, salud, gobierno, educacion y servicios.">
+  <meta name="keywords" content="Nativos360 Origenes, plataformas industriales, mineria, petroleo, gas, energia, Pukara360, Pulso, IncluAI, EducAI, salud digital, gobierno digital, educacion digital, servicios digitales, Catamarca, tecnologia, software, inteligencia artificial, territorio, datos">
   <meta name="theme-color" content="#0f172a">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -47,6 +47,28 @@
       animation: floatMockup 8s ease-in-out infinite;
     }
 
+    .hero-entry {
+      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.97) 0%, rgba(2, 6, 23, 0.88) 42%, rgba(2, 6, 23, 0.54) 100%), url("assets/visuals/cta-digital-platform-photo.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-entry::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 34%;
+      background: linear-gradient(180deg, transparent, rgba(2, 6, 23, 0.92));
+      pointer-events: none;
+    }
+
+    .hero-proof {
+      background: rgba(2, 6, 23, 0.72);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 80px rgba(2, 6, 23, 0.34);
+      backdrop-filter: blur(18px);
+    }
+
     .visual-frame {
       background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
       border: 1px solid rgba(255,255,255,0.16);
@@ -59,6 +81,35 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .project-mark {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), 0 18px 42px rgba(2, 6, 23, 0.18);
+    }
+
+    .project-mark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.32), transparent 48%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .project-mark span {
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0;
+    }
+
+    .compact-copy {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .depth-card {
@@ -130,6 +181,12 @@
     .magnetic-btn:hover::before {
       opacity: 1;
       transform: translateX(120%);
+    }
+
+    .cta-photo {
+      background-image: linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.78) 38%, rgba(2, 6, 23, 0.34) 100%), url("assets/visuals/cta-digital-platform-photo.png");
+      background-size: cover;
+      background-position: center;
     }
 
     .hero-visual-shell {
@@ -230,17 +287,12 @@
 
         <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-white/86">
           <a href="#inicio" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Inicio</a>
-          <div class="relative group">
-            <a href="#ecosistema" class="hover:text-orange-300 transition-colors focus-ring rounded-md inline-flex items-center gap-1">Ecosistema <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-            <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 focus-within:translate-y-0 absolute top-full left-1/2 -translate-x-1/2 pt-5 transition-all duration-200 w-[720px]">
-              <div id="desktop-ecosystem-menu" class="bg-white text-slate-900 rounded-2xl shadow-2xl border border-slate-200 p-4 grid grid-cols-2 gap-3"></div>
-            </div>
-          </div>
-          <a href="#pukara360" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Pukara360</a>
-          <a href="#pulso" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Pulso</a>
+          <a href="#ecosistema" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Ecosistema</a>
           <a href="#soluciones" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Soluciones</a>
-          <a href="#productos-lab" class="hover:text-orange-300 transition-colors focus-ring rounded-md">Productos</a>
-            <a href="#contacto" class="magnetic-btn bg-orange-600 hover:bg-orange-500 text-white px-4 py-2.5 rounded-lg shadow-lg shadow-orange-950/20 transition-colors focus-ring">Contacto</a>
+          <button type="button" onclick="openLaunchpad()" class="magnetic-btn bg-cyan-400 hover:bg-cyan-300 text-slate-950 px-4 py-2.5 rounded-lg shadow-lg shadow-cyan-950/20 transition-colors focus-ring font-black leading-tight text-left">
+            NATIVOS<br class="hidden xl:block"> LAUNCHPAD
+          </button>
+          <a href="#contacto" class="magnetic-btn bg-orange-600 hover:bg-orange-500 text-white px-4 py-2.5 rounded-lg shadow-lg shadow-orange-950/20 transition-colors focus-ring">Contacto</a>
         </div>
 
         <button id="mobile-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden text-white p-2 rounded-lg bg-white/10 focus-ring">
@@ -252,10 +304,8 @@
         <div class="px-5 py-5 flex flex-col gap-2 text-white">
           <a href="#inicio" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Inicio</a>
           <a href="#ecosistema" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Ecosistema</a>
-          <a href="#pukara360" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Pukara360</a>
-          <a href="#pulso" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Pulso</a>
           <a href="#soluciones" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Soluciones</a>
-          <a href="#productos-lab" class="mobile-link px-3 py-3 rounded-lg hover:bg-white/10 focus-ring">Productos</a>
+          <button type="button" onclick="openLaunchpad(); toggleMobileMenu(true);" class="mt-2 bg-cyan-400 text-slate-950 px-4 py-3 rounded-lg font-black text-center focus-ring">NATIVOS LAUNCHPAD</button>
           <a href="#contacto" class="mobile-link mt-2 bg-orange-600 text-white px-4 py-3 rounded-lg font-bold text-center focus-ring">Contacto</a>
         </div>
       </div>
@@ -263,14 +313,10 @@
   </nav>
 
   <main id="main-content">
-    <header id="inicio" class="relative min-h-screen bg-slate-950 overflow-hidden pt-32 md:pt-36">
-      <div class="orb w-72 h-72 bg-orange-500 top-28 -left-16"></div>
-      <div class="orb w-80 h-80 bg-cyan-400 bottom-16 right-0"></div>
-      <div class="absolute inset-0 opacity-[0.08]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 44px 44px;"></div>
-
+    <header id="inicio" class="hero-entry relative min-h-screen bg-slate-950 overflow-hidden pt-32 md:pt-36">
       <div class="container mx-auto px-5 lg:px-8 relative z-10 grid lg:grid-cols-[1.02fr_.98fr] gap-14 items-center pb-24">
         <section class="max-w-4xl">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/8 border border-white/12 text-cyan-200 font-bold text-sm mb-7">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-950/72 border border-white/16 text-cyan-200 font-bold text-sm mb-7 backdrop-blur-xl">
             <span class="w-2 h-2 bg-cyan-300 rounded-full"></span>
             Ecosistema de plataformas digitales propias
           </div>
@@ -278,7 +324,7 @@
             Creamos plataformas propias para mostrar, medir, gestionar y conectar.
           </h1>
           <p class="text-lg md:text-xl text-slate-300 max-w-3xl mt-7 leading-relaxed">
-            Nativos desarrolla proyectos digitales como Pukara360, Pulso y soluciones para salud, gobierno, educacion y servicios generales.
+            Nativos desarrolla proyectos digitales como Nativos360 Origenes, Pukara360, Pulso, IncluAI, EducAI y soluciones para industria, territorio, salud, gobierno, educacion y servicios generales.
           </p>
           <p class="text-slate-400 max-w-3xl mt-4 leading-relaxed">
             Un ecosistema de productos digitales pensado para instituciones, territorios, comunidades, organizaciones y personas.
@@ -291,10 +337,27 @@
               Contactar <i data-lucide="send" class="w-5 h-5"></i>
             </a>
           </div>
-          <div class="mt-10 rounded-2xl border border-white/18 bg-slate-950/82 p-4 md:p-5 shadow-2xl shadow-slate-950/30 backdrop-blur-xl reveal-3d">
+          <div class="hero-proof mt-10 rounded-2xl p-4 md:p-5 reveal-3d">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+              <div class="rounded-xl bg-white/8 border border-white/10 p-3">
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-200 font-extrabold">Propio</p>
+                <p class="text-white font-black mt-1">Portfolio real</p>
+              </div>
+              <div class="rounded-xl bg-white/8 border border-white/10 p-3">
+                <p class="text-xs uppercase tracking-[0.18em] text-orange-200 font-extrabold">IA + datos</p>
+                <p class="text-white font-black mt-1">Productos aplicados</p>
+              </div>
+              <div class="rounded-xl bg-white/8 border border-white/10 p-3">
+                <p class="text-xs uppercase tracking-[0.18em] text-cyan-200 font-extrabold">Local</p>
+                <p class="text-white font-black mt-1">Implementacion cercana</p>
+              </div>
+            </div>
             <p class="flex flex-wrap gap-2 text-sm md:text-base font-extrabold text-white">
+              <span class="rounded-full bg-white/12 px-3 py-1.5">Nativos360 Origenes</span>
               <span class="rounded-full bg-white/12 px-3 py-1.5">Pukara360</span>
               <span class="rounded-full bg-white/12 px-3 py-1.5">Pulso</span>
+              <span class="rounded-full bg-white/12 px-3 py-1.5">IncluAI</span>
+              <span class="rounded-full bg-white/12 px-3 py-1.5">EducAI</span>
               <span class="rounded-full bg-white/12 px-3 py-1.5">Salud Digital</span>
               <span class="rounded-full bg-white/12 px-3 py-1.5">Gobierno Digital</span>
               <span class="rounded-full bg-white/12 px-3 py-1.5">Educacion Digital</span>
@@ -323,29 +386,35 @@
 
     <section id="ecosistema" class="py-24 bg-slate-50 scroll-mt-28">
       <div class="container mx-auto px-5 lg:px-8">
-        <div class="max-w-3xl mb-12">
+        <div class="max-w-4xl mb-12">
           <p class="text-orange-600 font-extrabold uppercase tracking-[0.24em] text-xs mb-3">Ecosistema de Proyectos Nativos</p>
-          <h2 class="text-3xl md:text-5xl font-black text-slate-950">Proyectos propios que resuelven problemas reales</h2>
-          <p class="text-slate-600 mt-5 text-lg leading-relaxed">Cada plataforma Nativos nace para mostrar mejor, medir mejor, gestionar mejor o conectar personas, instituciones y territorios.</p>
+          <h2 class="text-3xl md:text-5xl font-black text-slate-950">Todos nuestros proyectos en un solo lugar</h2>
+          <p class="text-slate-600 mt-5 text-lg leading-relaxed">Aca reunimos las plataformas principales, las puntas de lanza y las lineas propias en desarrollo. Todo nace del mismo ecosistema Nativos: mostrar mejor, medir mejor, gestionar mejor y conectar personas, instituciones y territorios.</p>
         </div>
+        <div class="scroll-mt-28" id="nativos360-origenes"></div>
         <div class="scroll-mt-28" id="pukara360"></div>
         <div class="scroll-mt-28" id="pulso"></div>
+        <div class="scroll-mt-28" id="incluai"></div>
+        <div class="scroll-mt-28" id="educai"></div>
         <div class="scroll-mt-28" id="salud-digital"></div>
         <div class="scroll-mt-28" id="gobierno-digital"></div>
         <div class="scroll-mt-28" id="educacion-digital"></div>
         <div class="scroll-mt-28" id="servicios-generales"></div>
+        <div class="scroll-mt-28" id="asesor-virtual"></div>
+        <div class="scroll-mt-28" id="natalia"></div>
         <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7"></div>
-      </div>
-    </section>
-
-    <section id="presentaciones" class="py-24 bg-white scroll-mt-28">
-      <div class="container mx-auto px-5 lg:px-8">
-        <div class="max-w-3xl mb-12">
-          <p class="text-orange-600 font-extrabold uppercase tracking-[0.24em] text-xs mb-3">Presentaciones internas</p>
-          <h2 class="text-3xl md:text-5xl font-black text-slate-950">Un espacio para entender cada proyecto</h2>
-          <p class="text-slate-600 mt-5 text-lg leading-relaxed">Cada modulo presenta que es la plataforma, para que sirve, que resuelve y cuales son sus componentes principales.</p>
+        <div id="productos-lab" class="scroll-mt-28 mt-16 rounded-[2rem] border border-slate-200 bg-white p-5 md:p-8 shadow-sm">
+          <div class="grid lg:grid-cols-[0.78fr_1.22fr] gap-5 lg:gap-10 items-start mb-7">
+            <div>
+              <p class="text-orange-600 font-extrabold uppercase tracking-[0.24em] text-xs mb-3">Mapa completo</p>
+              <h3 class="text-2xl md:text-3xl font-black text-slate-950">Mas proyectos propios</h3>
+            </div>
+            <p class="text-slate-600 leading-relaxed lg:pt-8">
+              Lineas nuestras en desarrollo, validacion o activacion comercial. Las mostramos compactas para que se vea el alcance completo sin repetir secciones por toda la web.
+            </p>
+          </div>
+          <div id="lab-products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3"></div>
         </div>
-        <div id="project-showcases" class="space-y-10"></div>
       </div>
     </section>
 
@@ -357,17 +426,6 @@
           <p class="text-slate-600 mt-5 text-lg leading-relaxed">Combinamos experiencias visuales, datos, gestion e inteligencia artificial para crear productos digitales simples de usar y faciles de mostrar.</p>
         </div>
         <div id="modules-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
-      </div>
-    </section>
-
-    <section id="productos-lab" class="py-24 bg-slate-50 scroll-mt-28">
-      <div class="container mx-auto px-5 lg:px-8">
-        <div class="max-w-3xl mb-12">
-          <p class="text-orange-600 font-extrabold uppercase tracking-[0.24em] text-xs mb-3">Laboratorio Nativos</p>
-          <h2 class="text-3xl md:text-5xl font-black text-slate-950">Productos en desarrollo y lineas propias</h2>
-          <p class="text-slate-600 mt-5 text-lg leading-relaxed">Un mapa ampliado de soluciones que podemos presentar, validar o activar segun cada oportunidad comercial.</p>
-        </div>
-        <div id="lab-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
       </div>
     </section>
 
@@ -395,11 +453,11 @@
 
     <section class="py-24 bg-white">
       <div class="container mx-auto px-5 lg:px-8">
-        <div class="depth-card reveal-3d relative overflow-hidden rounded-[2rem] bg-slate-950 text-white p-8 md:p-14">
-          <div class="orb w-72 h-72 bg-orange-500 -top-20 -right-16"></div>
+        <div class="depth-card reveal-3d cta-photo relative overflow-hidden rounded-[2rem] bg-slate-950 text-white p-8 md:p-14 min-h-[420px] flex items-center">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/72 via-transparent to-transparent"></div>
           <div class="relative z-10 max-w-3xl">
             <p class="text-cyan-300 font-extrabold uppercase tracking-[0.24em] text-xs mb-4">CTA</p>
-            <h2 class="text-3xl md:text-5xl font-black mb-5">¿Tenes una idea, institucion o proyecto para digitalizar?</h2>
+            <h2 class="text-3xl md:text-5xl font-black mb-5">Â¿Tenes una idea, institucion o proyecto para digitalizar?</h2>
             <p class="text-slate-300 text-lg leading-relaxed">Creamos la plataforma, la mostramos de forma visual y la conectamos con usuarios reales.</p>
             <a href="#contacto" class="magnetic-btn mt-9 inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 px-7 py-4 rounded-xl font-extrabold transition-colors focus-ring">Hablar con Nativos <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
           </div>
@@ -449,13 +507,16 @@
             <label class="block">
               <span class="text-sm font-bold text-slate-700">Interes principal</span>
               <select name="interest" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none">
+                <option>Nativos360 Origenes</option>
                 <option>Pukara360</option>
                 <option>Pulso</option>
                 <option>Salud Digital</option>
                 <option>Gobierno Digital</option>
                 <option>Educacion Digital</option>
                 <option>Servicios Generales</option>
-                <option>Producto del laboratorio Nativos</option>
+                <option>Asesor Virtual</option>
+                <option>NataLia 360</option>
+                <option>Otro proyecto Nativos</option>
                 <option>Otro proyecto digital</option>
               </select>
             </label>
@@ -478,7 +539,7 @@
         <img src="logo-full.png" alt="Nativos Consultora Digital" class="h-14 w-auto object-contain mb-4">
         <p class="max-w-xl text-sm text-slate-400">Ecosistema de plataformas digitales propias para territorio, datos, salud, gobierno, educacion y servicios.</p>
       </div>
-      <div class="text-sm text-slate-500">© 2026 Nativos Consultora Digital. Todos los derechos reservados.</div>
+      <div class="text-sm text-slate-500">Â© 2026 Nativos Consultora Digital. Todos los derechos reservados.</div>
     </div>
   </footer>
 
@@ -507,21 +568,109 @@
 
     const projectsData = [
       {
+        slug: "nativos360-origenes",
+        name: "Nativos360 Origenes",
+        tagline: "Sistema operativo modular para mineria, petroleo, gas, energia e industria pesada.",
+        description: "Nativos360 Origenes es la marca holding digital de Nativos Consultora Digital para vender e implementar productos tecnologicos modulares en industrias criticas. Permite que una minera, petrolera, energetica o industria pesada active solo los modulos que necesita y escale con una base SaaS compartida de usuarios, permisos, documentos, auditoria, notificaciones y analytics.",
+        audiences: ["Mineria", "Petroleo y gas", "Energia", "Industria pesada", "Operaciones", "HSE", "Compras", "RRHH", "Ambiente", "Relaciones comunitarias", "Innovacion"],
+        modules: ["Cumbre", "Trama", "Pulso industrial", "Pacha", "Puente", "Nexo", "Core compartido", "Productos activables"],
+        useCases: ["Entrar por un modulo y expandir gradualmente", "Unificar usuarios, permisos, documentos y auditoria", "Gestionar operaciones, contratistas, ambiente, personas y comunidades", "Activar IA transversal para documentos, asesores y copilotos internos"],
+        internalModulesLabel: "Productos activables de Nativos360 Origenes",
+        internalModules: [
+          {
+            title: "Cumbre",
+            description: "Suite operativa industrial para operaciones, HSE, field reports, incidentes, permisos, inspecciones y productividad.",
+            items: ["Operacion", "HSE", "Permisos", "Productividad"]
+          },
+          {
+            title: "Trama",
+            description: "Gestion de contratistas, proveedores, legajos, documentacion, habilitaciones, vencimientos, scoring y compliance.",
+            items: ["Contratistas", "Legajos", "Compliance", "Vencimientos"]
+          },
+          {
+            title: "Pulso industrial",
+            description: "Gestion humana industrial para comunicacion interna, clima, onboarding, reconocimientos, bienestar, turnos y engagement.",
+            items: ["Comunicacion", "Clima", "Onboarding", "Turnos"]
+          },
+          {
+            title: "Pacha",
+            description: "Gestion ambiental industrial para mediciones, permisos, alertas, acciones correctivas, documentos y reportes ESG.",
+            items: ["Ambiente", "Mediciones", "Permisos", "ESG"]
+          },
+          {
+            title: "Puente",
+            description: "Gestion territorial y de stakeholders para comunidades, reclamos, compromisos sociales, empleo local y licencia social.",
+            items: ["Comunidades", "Reclamos", "Compromisos", "Licencia social"]
+          },
+          {
+            title: "Nexo",
+            description: "Motor IA multi-asesor con RAG, documentos, conversaciones, copilots internos, seguridad y uso medido.",
+            items: ["IA", "RAG", "Documentos", "Copilots"]
+          }
+        ],
+        internalUrl: "#nativos360-origenes",
+        externalUrl: "",
+        ctaPrimary: "Conocer Nativos360",
+        ctaSecondary: "Solicitar demo industrial",
+        visualType: "industrial",
+        icon: "factory",
+        mark: "N360",
+        markColor: "from-orange-600 via-slate-800 to-cyan-600",
+        visualAsset: "assets/visuals/nativos360-origenes-industrial-photo.png",
+        visualAlt: "Centro de operaciones industriales con dashboards de mineria, petroleo, energia y gestion modular para representar Nativos360 Origenes",
+        featured: true
+      },
+      {
         slug: "pukara360",
         name: "Pukara360",
-        tagline: "Mostra lugares, instituciones y territorios como si la persona estuviera ahi.",
-        description: "Pukara360 es una plataforma de experiencias inmersivas para recorrer espacios, proyectos, instituciones, destinos o territorios mediante imagenes 360, mapas, puntos interactivos y contenido visual.",
-        audiences: ["Turismo", "Gobierno", "Educacion", "Cultura", "Museos", "Instituciones", "Empresas", "Proyectos territoriales", "Eventos"],
-        modules: ["Recorridos 360", "Mapa interactivo", "Puntos de interes", "Galeria multimedia", "Fichas informativas", "Contenido institucional", "Estadisticas de visitas"],
-        useCases: ["Presentar destinos o edificios", "Crear visitas virtuales", "Mostrar proyectos territoriales", "Acompañar eventos con contenido visual"],
+        tagline: "Seguridad, transito y respuesta territorial en una plataforma operativa unificada.",
+        description: "Pukara360 es una plataforma tecnologica para gobiernos, municipios, fuerzas de seguridad y centros de control urbano. Centraliza incidentes, transito, patrullaje, reportes ciudadanos y monitoreo territorial en una unica plataforma inteligente, moderna y escalable.",
+        audiences: ["Gobiernos", "Municipios", "Fuerzas de seguridad", "Centros de control urbano", "Transito", "Defensa civil", "Emergencias", "Operadores territoriales", "Smart Cities", "Areas de monitoreo"],
+        modules: ["Mapa Operativo", "Gestion de Incidentes", "Despacho Inteligente", "Portal Ciudadano", "Transito", "Reportes y Analytics", "Auditoria", "Monitoreo territorial"],
+        useCases: ["Centralizar incidentes y reportes ciudadanos", "Coordinar patrullaje, transito y emergencias", "Reducir tiempos de respuesta operativa", "Tomar decisiones con mapas, KPIs y trazabilidad institucional"],
+        internalModulesLabel: "Modulos principales de Pukara360",
+        internalModules: [
+          {
+            title: "Mapa Operativo",
+            description: "Visualizacion en tiempo real de incidentes, patrulleros, cortes, alertas y situacion territorial.",
+            items: ["Incidentes", "Patrulleros", "Cortes", "Alertas"]
+          },
+          {
+            title: "Gestion de Incidentes",
+            description: "Registro, seguimiento, asignacion y resolucion de emergencias con trazabilidad operativa.",
+            items: ["Registro", "Seguimiento", "Asignacion", "Resolucion"]
+          },
+          {
+            title: "Despacho Inteligente",
+            description: "Asignacion de unidades, coordinacion de recursos y control operativo para mejorar tiempos de respuesta.",
+            items: ["Unidades", "Recursos", "Respuesta", "Control operativo"]
+          },
+          {
+            title: "Portal Ciudadano",
+            description: "Canal web o movil para denuncias, solicitudes y reportes ciudadanos conectados al centro de control.",
+            items: ["Denuncias", "Reportes", "Solicitudes", "Web y celular"]
+          },
+          {
+            title: "Transito",
+            description: "Control de cortes, accidentes, eventos urbanos, congestion y situaciones viales relevantes.",
+            items: ["Cortes", "Accidentes", "Eventos", "Congestion"]
+          },
+          {
+            title: "Reportes, Analytics y Auditoria",
+            description: "KPIs, metricas, mapas de calor y registro completo de acciones para decisiones basadas en datos.",
+            items: ["KPIs", "Mapas de calor", "Metricas", "Trazabilidad"]
+          }
+        ],
         internalUrl: "#pukara360",
         externalUrl: "",
         ctaPrimary: "Conocer Pukara360",
         ctaSecondary: "Ir a la web",
         visualType: "360",
         icon: "map",
-        visualAsset: "assets/visuals/pukara360-photo.jpg",
-        visualAlt: "Imagen satelital real de la mina Bajo de la Alumbrera en Catamarca, Argentina, para recorridos inmersivos industriales",
+        mark: "P360",
+        markColor: "from-orange-600 via-amber-500 to-cyan-500",
+        visualAsset: "assets/visuals/pukara360-command-center-photo.png",
+        visualAlt: "Centro de control urbano con mapas operativos, transito e incidentes para representar Pukara360",
         featured: true
       },
       {
@@ -533,29 +682,73 @@
         modules: ["Encuestas inteligentes", "Formularios digitales", "Dashboard en tiempo real", "Mapa de respuestas", "Indicadores visuales", "Reportes automaticos", "Alertas", "IA para analisis de datos"],
         useCases: ["Medir percepcion ciudadana", "Evaluar programas", "Recolectar datos territoriales", "Generar reportes automaticos"],
         internalUrl: "#pulso",
-        externalUrl: "",
+        externalUrl: "https://pulsos.com.ar",
         ctaPrimary: "Conocer Pulso",
         ctaSecondary: "Ir a la plataforma",
         visualType: "data",
         icon: "activity",
-        visualAsset: "assets/visuals/pulso-photo.jpg",
-        visualAlt: "Foto real de doctora con estetoscopio en entorno clinico para medicion sanitaria e indicadores de salud",
+        mark: "PULSO",
+        markColor: "from-cyan-500 via-blue-600 to-slate-950",
+        visualAsset: "assets/visuals/pulso-health-heart-photo.png",
+        visualAlt: "Monitor medico con onda de pulso cardiaco y visual de corazon para representar indicadores de salud en Pulso",
+        featured: true
+      },
+      {
+        slug: "incluai",
+        name: "IncluAI",
+        tagline: "IA para hacer mas accesible la informacion, los servicios y el acompanamiento.",
+        description: "IncluAI es una linea propia de soluciones con inteligencia artificial para mejorar accesibilidad, acompanamiento digital, lectura de informacion, orientacion de usuarios y acceso simple a contenidos o tramites.",
+        audiences: ["Personas con barreras de acceso", "Instituciones publicas", "Educacion", "Salud", "Organizaciones sociales", "Municipios", "Equipos de atencion", "Programas de inclusion"],
+        modules: ["Asistente accesible", "Lectura guiada", "Respuestas simples", "Orientacion paso a paso", "Contenido adaptado", "Panel de consultas", "Derivacion a equipos", "Reportes de uso"],
+        useCases: ["Acompanamiento digital inclusivo", "Acceso simple a informacion", "Orientacion en tramites y servicios", "Apoyo a equipos de atencion"],
+        internalUrl: "#incluai",
+        externalUrl: "https://incluai.com.ar",
+        ctaPrimary: "Conocer IncluAI",
+        ctaSecondary: "Ir a IncluAI",
+        visualType: "accessibility",
+        icon: "accessibility",
+        mark: "IncluAI",
+        markColor: "from-fuchsia-600 via-cyan-600 to-slate-950",
+        visualAsset: "assets/visuals/incluai-education-photo.png",
+        visualAlt: "Aula inclusiva con ninos de distintas capacidades trabajando felices junto a su docente para representar IncluAI",
+        featured: true
+      },
+      {
+        slug: "educai",
+        name: "EducAI",
+        tagline: "IA educativa para crear, acompanar, evaluar y medir aprendizajes.",
+        description: "EducAI es una plataforma propia para instituciones, programas de formacion, docentes, alumnos y equipos que necesitan organizar contenidos, generar materiales, asistir consultas, medir avances y acompanar trayectorias educativas.",
+        audiences: ["Escuelas", "Institutos", "Docentes", "Alumnos", "Academias", "Programas de capacitacion", "Gobiernos", "Empresas", "ONGs"],
+        modules: ["Tutor IA", "Generador de contenidos", "Evaluaciones asistidas", "Seguimiento de alumnos", "Materiales adaptados", "Aulas digitales", "Reportes educativos", "Asistente docente"],
+        useCases: ["Crear materiales educativos", "Acompanar consultas de alumnos", "Medir avances y asistencia", "Ordenar programas de formacion"],
+        internalUrl: "#educai",
+        externalUrl: "",
+        ctaPrimary: "Conocer EducAI",
+        ctaSecondary: "Solicitar demo",
+        visualType: "aiEducation",
+        icon: "graduation-cap",
+        mark: "EducAI",
+        markColor: "from-emerald-600 via-cyan-600 to-slate-950",
+        visualAsset: "assets/visuals/educai-teen-education-photo.png",
+        visualAlt: "Aula con adolescentes trabajando con laptops, tablets y docente para representar EducAI y aprendizaje con inteligencia artificial",
         featured: true
       },
       {
         slug: "salud-digital",
         name: "Salud Digital",
         tagline: "Tecnologia para ordenar la atencion, la prevencion y la gestion sanitaria.",
-        description: "Solucion digital para instituciones, programas de salud, campañas, centros medicos o areas publicas que necesitan gestionar personas, turnos, relevamientos, seguimiento, comunicacion y reportes.",
-        audiences: ["Centros de salud", "Clinicas", "Municipios", "Ministerios", "Programas sanitarios", "Campañas de prevencion", "Organizaciones sociales"],
-        modules: ["Turnos", "Fichas de personas", "Seguimiento de casos", "Campañas de salud", "Formularios de relevamiento", "Notificaciones", "Reportes", "Dashboard sanitario"],
-        useCases: ["Ordenar turnos y seguimiento", "Registrar relevamientos", "Coordinar campañas", "Visualizar indicadores de gestion"],
+        description: "Solucion digital para instituciones, programas de salud, campaÃ±as, centros medicos o areas publicas que necesitan gestionar personas, turnos, relevamientos, seguimiento, comunicacion y reportes.",
+        audiences: ["Centros de salud", "Clinicas", "Municipios", "Ministerios", "Programas sanitarios", "CampaÃ±as de prevencion", "Organizaciones sociales"],
+        modules: ["Turnos", "Fichas de personas", "Seguimiento de casos", "CampaÃ±as de salud", "Formularios de relevamiento", "Notificaciones", "Reportes", "Dashboard sanitario"],
+        useCases: ["Ordenar turnos y seguimiento", "Registrar relevamientos", "Coordinar campaÃ±as", "Visualizar indicadores de gestion"],
         internalUrl: "#salud-digital",
         externalUrl: "",
         ctaPrimary: "Ver solucion de salud",
         ctaSecondary: "Solicitar demo",
         visualType: "health",
         icon: "heart-pulse",
+        mark: "SALUD",
+        markColor: "from-rose-500 via-orange-500 to-slate-950",
         visualAsset: "assets/visuals/salud-digital-photo.jpg",
         visualAlt: "Foto real de medico en Buenos Aires, Argentina, como referencia de atencion y gestion sanitaria digital"
       },
@@ -573,13 +766,15 @@
         ctaSecondary: "Hablar con Nativos",
         visualType: "government",
         icon: "landmark",
+        mark: "GOB",
+        markColor: "from-blue-700 via-cyan-600 to-slate-950",
         visualAsset: "assets/visuals/gobierno-digital-photo.jpg",
         visualAlt: "Foto real de edificio legislativo en Buenos Aires, Argentina, como referencia de gobierno digital y atencion ciudadana"
       },
       {
         slug: "educacion-digital",
         name: "Educacion Digital",
-        tagline: "Plataformas para enseñar, acompañar y medir procesos educativos.",
+        tagline: "Plataformas para enseÃ±ar, acompaÃ±ar y medir procesos educativos.",
         description: "Solucion para instituciones educativas, programas de formacion, capacitaciones, cursos, academias o gobiernos que necesitan organizar contenidos, alumnos, asistencia, evaluaciones, certificados y datos educativos.",
         audiences: ["Escuelas", "Institutos", "Academias", "Programas de capacitacion", "Municipios", "Empresas", "ONGs", "Proyectos educativos"],
         modules: ["Aulas virtuales", "Cursos", "Alumnos", "Asistencia", "Evaluaciones", "Certificados", "Materiales descargables", "Dashboard educativo"],
@@ -590,6 +785,8 @@
         ctaSecondary: "Solicitar presentacion",
         visualType: "education",
         icon: "graduation-cap",
+        mark: "EDU",
+        markColor: "from-emerald-600 via-cyan-600 to-slate-950",
         visualAsset: "assets/visuals/educacion-digital-photo.jpg",
         visualAlt: "Foto real de campus universitario moderno en Buenos Aires, Argentina, para educacion digital y formacion"
       },
@@ -602,13 +799,54 @@
         modules: ["Catalogo de servicios", "Perfil de prestadores", "Solicitudes", "Ubicacion", "Calificaciones", "Chat o contacto", "Panel administrativo", "Metricas"],
         useCases: ["Directorios locales", "Marketplace regional", "Gestion de prestadores", "Solicitudes de servicios"],
         internalUrl: "#servicios-generales",
-        externalUrl: "",
+        externalUrl: "https://tooriserviciosya.com",
         ctaPrimary: "Ver Servicios Generales",
-        ctaSecondary: "Ir a la plataforma",
+        ctaSecondary: "Ir a Toori ServiciosYa",
         visualType: "services",
         icon: "handshake",
+        mark: "SYA",
+        markColor: "from-orange-600 via-slate-700 to-cyan-600",
+        logoAsset: "logo-serviciosya.png",
         visualAsset: "assets/visuals/servicios-generales-photo.jpg",
         visualAlt: "Foto real de trabajadores de construccion en Buenos Aires, Argentina, para servicios generales y prestadores locales"
+      },
+      {
+        slug: "asesor-virtual",
+        name: "Asesor Virtual",
+        tagline: "Un agente digital para orientar consultas, responder rapido y derivar oportunidades.",
+        description: "Asesor Virtual es un proyecto propio de IA conversacional para empresas, instituciones y proyectos que necesitan responder preguntas frecuentes, ordenar consultas, guiar usuarios, captar datos utiles y derivar oportunidades comerciales o de atencion.",
+        audiences: ["Empresas", "Instituciones", "Comercios", "Equipos de atencion", "Proyectos digitales", "Municipios", "Servicios profesionales", "Areas comerciales"],
+        modules: ["Chat inteligente", "Preguntas frecuentes", "Captura de datos", "Derivacion a WhatsApp", "Base de conocimiento", "Panel de consultas", "Metrica de conversaciones", "Entrenamiento por negocio"],
+        useCases: ["Responder consultas frecuentes", "Orientar usuarios antes de hablar con una persona", "Captar oportunidades comerciales", "Ordenar mensajes y derivaciones"],
+        internalUrl: "#asesor-virtual",
+        externalUrl: "https://miasesor.com.ar",
+        ctaPrimary: "Ver Asesor Virtual",
+        ctaSecondary: "Ir a Mi Asesor",
+        visualType: "assistant",
+        icon: "bot",
+        mark: "AV",
+        markColor: "from-cyan-600 via-slate-800 to-orange-500",
+        visualAsset: "assets/visuals/asesor-virtual-photo.png",
+        visualAlt: "Persona trabajando con una interfaz de chat inteligente para representar Asesor Virtual"
+      },
+      {
+        slug: "natalia",
+        name: "NataLia 360",
+        tagline: "IA social para acompanar familias, primera infancia y politicas publicas con datos reales.",
+        description: "NataLia 360 es una plataforma GovTech + SocialTech de inteligencia social con IA para acompanar familias, conectar beneficios, detectar barreras sociales, prevenir crisis y planificar politicas publicas. No reemplaza al Estado ni a profesionales: ordena informacion, acerca soluciones y ayuda a llegar antes donde mas se necesita.",
+        audiences: ["Familias", "Gobiernos", "Municipios", "Obras sociales", "Sindicatos", "Fundaciones", "Agentes territoriales", "Equipos sociales", "Primera infancia", "Instituciones publicas"],
+        modules: ["NataLia Familias", "NataLia Beneficios", "Primera Infancia", "NataLia Territorio", "NataLia Alertas", "NataLia Impacto", "Agentes Territoriales", "Copiloto Institucional"],
+        useCases: ["Acompanar embarazo y primera infancia", "Conectar beneficios segun perfil y territorio", "Detectar barreras sociales y alertas tempranas", "Planificar politicas publicas con datos agregados"],
+        internalUrl: "#natalia",
+        externalUrl: "",
+        ctaPrimary: "Ver NataLia 360",
+        ctaSecondary: "Solicitar demo",
+        visualType: "social",
+        icon: "baby",
+        mark: "NL",
+        markColor: "from-rose-500 via-orange-500 to-cyan-600",
+        visualAsset: "assets/visuals/natalia-family-first-childhood-photo.png",
+        visualAlt: "Familia con embarazo y primera infancia recibiendo orientacion con una tablet para representar NataLia 360"
       }
     ];
 
@@ -626,7 +864,9 @@
       ["brain-circuit", "IA para analisis", "Encontra patrones, resumi informacion y detecta oportunidades."],
       ["bell-ring", "Notificaciones", "Comunica novedades, alertas y recordatorios a tiempo."],
       ["users-round", "Usuarios y roles", "Controla permisos, equipos y accesos segun cada organizacion."],
-      ["settings", "Panel administrativo", "Gestiona contenido, datos y operaciones desde un solo lugar."]
+      ["settings", "Panel administrativo", "Gestiona contenido, datos y operaciones desde un solo lugar."],
+      ["accessibility", "Accesibilidad asistida", "Adapta informacion y orienta usuarios con experiencias mas simples."],
+      ["graduation-cap", "Tutores IA", "Acompana consultas, contenidos y seguimiento educativo con inteligencia artificial."]
     ];
 
     const productLabData = [
@@ -636,12 +876,7 @@
       ["utensils", "MenuAI", "Comercios", "Menus digitales, sugerencias inteligentes y gestion de contenidos para negocios gastronomicos."],
       ["calendar-clock", "TurneroYa", "Gestion de turnos", "Reserva, confirmacion y seguimiento de turnos para instituciones y servicios."],
       ["activity", "Pulsos", "Medicion", "Suite para encuestas, percepcion, indicadores rapidos y reportes de comunidades o equipos."],
-      ["sparkles", "NATALia", "Asistente IA", "Asistente conversacional para acompanar consultas, contenidos y procesos digitales."],
-      ["panorama", "Nativos360 Origen", "Experiencias 360", "Recorridos inmersivos para identidad territorial, turismo, cultura e instituciones."],
       ["badge-dollar-sign", "SindiWallet", "Beneficios", "Billetera digital para beneficios, comunidad, pagos internos y gestion de afiliados."],
-      ["bot", "Asesor Virtual", "IA conversacional", "Agente digital para orientar consultas, responder preguntas frecuentes y derivar oportunidades."],
-      ["accessibility", "IncluAI", "Inclusion digital", "Soluciones con IA para mejorar accesibilidad, acompanamiento y acceso a informacion."],
-      ["graduation-cap", "EducAI", "Educacion", "Herramientas educativas con IA para contenidos, seguimiento, evaluaciones y asistencia."],
       ["gem", "MineralWallet", "Trazabilidad", "Gestion digital de activos, documentacion y trazabilidad para operaciones especificas."],
       ["megaphone", "ADgenius IA", "Marketing", "Plataforma para ideas, anuncios, piezas y analisis de campanas publicitarias con IA."],
       ["file-signature", "ContratoExpress", "Documentos", "Generacion y gestion agil de contratos, acuerdos, plantillas y aprobaciones."],
@@ -658,15 +893,16 @@
       ["graduation-cap", "Educacion"],
       ["users", "Comunidad"],
       ["handshake", "Servicios"],
+      ["accessibility", "Inclusion"],
       ["building-2", "Instituciones"],
       ["briefcase", "Empresas"]
     ];
 
     const processData = [
       ["lightbulb", "Idea", "Entendemos el problema, el publico y el objetivo del proyecto."],
-      ["palette", "Diseño visual", "Creamos una experiencia clara, atractiva y facil de usar."],
+      ["palette", "DiseÃ±o visual", "Creamos una experiencia clara, atractiva y facil de usar."],
       ["boxes", "MVP", "Desarrollamos una primera version funcional para validar rapido."],
-      ["rocket", "Implementacion", "Lanzamos la plataforma y acompañamos la puesta en marcha."],
+      ["rocket", "Implementacion", "Lanzamos la plataforma y acompaÃ±amos la puesta en marcha."],
       ["line-chart", "Medicion", "Analizamos uso, datos, comportamiento e impacto."],
       ["refresh-cw", "Mejora continua", "Escalamos modulos, automatizaciones e integraciones."]
     ];
@@ -675,18 +911,40 @@
       return `<i data-lucide="${name}" class="${classes}"></i>`;
     }
 
+    function projectMark(project, classes = "w-16 h-16 text-lg") {
+      if (project.logoAsset) {
+        return `
+          <span class="project-mark ${classes} rounded-2xl bg-white border border-white/70 flex items-center justify-center p-2">
+            <img src="${project.logoAsset}" alt="Logo de ${project.name}" class="max-w-full max-h-full object-contain">
+          </span>
+        `;
+      }
+
+      return `
+        <span class="project-mark ${classes} rounded-2xl bg-gradient-to-br ${project.markColor || "from-slate-950 to-orange-600"} text-white flex items-center justify-center">
+          <span class="font-black">${project.mark || project.name.slice(0, 3).toUpperCase()}</span>
+        </span>
+      `;
+    }
+
     function projectVisual(project) {
       if (project.visualAsset) {
         return `
-          <figure class="depth-card relative rounded-3xl overflow-hidden bg-slate-950 shadow-inner border border-slate-200">
-            <img src="${project.visualAsset}" alt="${project.visualAlt || `Visual de ${project.name}`}" class="visual-image min-h-[260px] saturate-[1.05] contrast-[1.04]" loading="lazy">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/78 via-slate-950/18 to-transparent"></div>
-            <div class="absolute left-5 right-5 bottom-5 flex items-end justify-between gap-4">
-              <div class="rounded-2xl bg-white/12 border border-white/18 backdrop-blur-xl px-4 py-3 text-white shadow-2xl">
+          <figure class="depth-card relative rounded-3xl overflow-hidden bg-slate-950 shadow-inner border border-slate-200 min-h-[320px]">
+            <img src="${project.visualAsset}" alt="${project.visualAlt || `Visual de ${project.name}`}" class="visual-image absolute inset-0 saturate-[1.05] contrast-[1.04]" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/86 via-slate-950/20 to-slate-950/10"></div>
+            <div class="absolute left-5 top-5 right-5 flex items-start justify-between gap-4">
+              ${projectMark(project, "w-20 h-20 text-xl")}
+              <span class="hidden sm:inline-flex rounded-full bg-white/14 border border-white/18 px-3 py-1.5 text-xs font-extrabold text-white backdrop-blur-xl">${project.modules[0]}</span>
+            </div>
+            <div class="absolute left-5 right-5 bottom-5">
+              <div class="rounded-2xl bg-white/12 border border-white/18 backdrop-blur-xl px-4 py-3 text-white shadow-2xl mb-3">
                 <p class="text-[11px] uppercase tracking-[0.22em] font-extrabold text-cyan-200">${project.featured ? "Plataforma propia" : "Solucion digital"}</p>
-                <p class="text-lg font-black">${project.name}</p>
+                <p class="text-2xl font-black">${project.name}</p>
               </div>
-              <span class="icon-3d hidden sm:flex w-12 h-12 rounded-2xl bg-orange-600 text-white items-center justify-center">${icon(project.icon, "w-6 h-6")}</span>
+              <div class="grid grid-cols-2 gap-2">
+                ${project.useCases.slice(0, 2).map(item => `<span class="rounded-xl bg-slate-950/64 border border-white/12 px-3 py-2 text-xs font-bold text-white backdrop-blur">${item}</span>`).join("")}
+              </div>
             </div>
           </figure>
         `;
@@ -698,7 +956,12 @@
         health: "from-rose-400 via-orange-300 to-white",
         government: "from-blue-600 via-cyan-300 to-white",
         education: "from-emerald-400 via-cyan-300 to-white",
-        services: "from-orange-400 via-slate-200 to-cyan-300"
+        services: "from-orange-400 via-slate-200 to-cyan-300",
+        accessibility: "from-fuchsia-500 via-cyan-300 to-white",
+        aiEducation: "from-emerald-500 via-cyan-300 to-white",
+        industrial: "from-orange-600 via-slate-800 to-cyan-500",
+        assistant: "from-cyan-400 via-slate-700 to-orange-400",
+        social: "from-rose-400 via-orange-300 to-cyan-200"
       };
       const gradient = palettes[project.visualType] || "from-orange-500 to-cyan-300";
       return `
@@ -733,7 +996,7 @@
         <article id="card-${project.slug}" class="depth-card reveal-3d ${project.featured ? "xl:col-span-3 lg:grid lg:grid-cols-[1fr_.9fr] lg:gap-8" : ""} scroll-mt-28 bg-white rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
           <div class="p-6 md:p-8 flex flex-col">
             <div class="flex items-center gap-3 mb-5">
-              <span class="icon-3d w-12 h-12 rounded-2xl bg-slate-950 text-orange-300 flex items-center justify-center">${icon(project.icon, "w-6 h-6")}</span>
+              ${projectMark(project, "w-16 h-16 text-lg shrink-0")}
               <div>
                 <p class="text-xs uppercase tracking-[0.22em] text-orange-600 font-extrabold">${project.featured ? "Proyecto principal" : "Solucion propia"}</p>
                 <h3 class="text-2xl md:text-3xl font-black text-slate-950">${project.name}</h3>
@@ -741,6 +1004,12 @@
             </div>
             <p class="text-lg font-extrabold text-slate-900 mb-3">${project.tagline}</p>
             <p class="text-slate-600 leading-relaxed mb-6">${project.description}</p>
+            <div class="mb-7 rounded-2xl bg-slate-50 border border-slate-200 p-4">
+              <p class="text-xs uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-3">Para que sirve</p>
+              <div class="grid gap-2">
+                ${project.useCases.slice(0, 3).map(item => `<div class="flex gap-2 text-sm font-bold text-slate-700">${icon("check-circle", "w-4 h-4 text-cyan-600 mt-0.5 shrink-0")}<span>${item}</span></div>`).join("")}
+              </div>
+            </div>
             <div class="mb-7">
               <p class="text-xs uppercase tracking-[0.22em] text-slate-500 font-extrabold mb-3">Modulos</p>
               <div class="flex flex-wrap gap-2">
@@ -757,49 +1026,6 @@
       `).join("");
     }
 
-    function renderProjectShowcases() {
-      document.getElementById("project-showcases").innerHTML = projectsData.map((project, index) => {
-        const reversed = index % 2 === 1;
-        return `
-          <article id="presentacion-${project.slug}" class="depth-card reveal-3d grid lg:grid-cols-2 gap-0 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-sm">
-            <div class="${reversed ? "lg:order-2" : ""} bg-slate-950 p-5 md:p-7 flex items-center">
-              ${projectVisual(project)}
-            </div>
-            <div class="p-6 md:p-10 flex flex-col justify-center">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="icon-3d w-12 h-12 rounded-2xl bg-slate-950 text-orange-300 flex items-center justify-center">${icon(project.icon, "w-6 h-6")}</span>
-                <div>
-                  <p class="text-xs uppercase tracking-[0.22em] text-orange-600 font-extrabold">${project.featured ? "Proyecto principal" : "Solucion propia"}</p>
-                  <h3 class="text-3xl md:text-4xl font-black text-slate-950">${project.name}</h3>
-                </div>
-              </div>
-              <p class="text-xl font-extrabold text-slate-900 mb-4">${project.tagline}</p>
-              <section class="mb-6">
-                <h4 class="text-sm uppercase tracking-[0.2em] text-slate-500 font-extrabold mb-2">Que es</h4>
-                <p class="text-slate-600 leading-relaxed">${project.description}</p>
-              </section>
-              <section class="mb-6">
-                <h4 class="text-sm uppercase tracking-[0.2em] text-slate-500 font-extrabold mb-3">Para que sirve</h4>
-                <div class="flex flex-wrap gap-2">
-                  ${project.audiences.slice(0, 8).map(item => `<span class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold">${item}</span>`).join("")}
-                </div>
-              </section>
-              <section class="mb-7">
-                <h4 class="text-sm uppercase tracking-[0.2em] text-slate-500 font-extrabold mb-3">Modulos destacados</h4>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  ${project.modules.slice(0, 6).map(item => `<div class="rounded-xl bg-white border border-slate-200 px-3 py-2 text-sm font-bold text-slate-700">${item}</div>`).join("")}
-                </div>
-              </section>
-              <div class="flex flex-col sm:flex-row gap-3">
-                <button type="button" onclick="openProject('${project.slug}')" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-slate-950 text-white hover:bg-orange-600 px-5 py-3 rounded-xl font-extrabold transition-colors focus-ring">Ver presentacion completa</button>
-                <button type="button" onclick="startConversation('Quiero consultar por ${project.name}')" class="magnetic-btn inline-flex justify-center items-center gap-2 border border-slate-300 hover:border-cyan-400 hover:text-cyan-700 px-5 py-3 rounded-xl font-extrabold transition-colors focus-ring">Consultar</button>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join("");
-    }
-
     function renderModules() {
       document.getElementById("modules-grid").innerHTML = modulesData.map(([iconName, title, description]) => `
         <article class="depth-card reveal-3d group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
@@ -812,13 +1038,17 @@
 
     function renderProductLab() {
       document.getElementById("lab-products-grid").innerHTML = productLabData.map(([iconName, name, category, description]) => `
-        <article class="depth-card reveal-3d group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-          <div class="flex items-start justify-between gap-4 mb-5">
-            <div class="icon-3d w-12 h-12 rounded-2xl bg-slate-950 text-orange-300 group-hover:bg-orange-600 group-hover:text-white flex items-center justify-center transition-colors">${icon(iconName, "w-6 h-6")}</div>
-            <span class="text-[11px] uppercase tracking-[0.18em] font-extrabold text-cyan-700 bg-cyan-50 border border-cyan-100 rounded-full px-3 py-1">${category}</span>
+        <article class="depth-card reveal-3d group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+          <div class="flex gap-4 items-start">
+            <div class="icon-3d w-11 h-11 rounded-xl bg-slate-950 text-orange-300 group-hover:bg-orange-600 group-hover:text-white flex items-center justify-center transition-colors shrink-0">${icon(iconName, "w-5 h-5")}</div>
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                <h3 class="text-lg font-black text-slate-950 leading-tight">${name}</h3>
+                <span class="text-[10px] uppercase tracking-[0.16em] font-extrabold text-cyan-700 bg-cyan-50 border border-cyan-100 rounded-full px-2.5 py-1">${category}</span>
+              </div>
+              <p class="compact-copy text-sm text-slate-600 leading-relaxed">${description}</p>
+            </div>
           </div>
-          <h3 class="text-xl font-black text-slate-950 mb-2">${name}</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">${description}</p>
         </article>
       `).join("");
     }
@@ -844,7 +1074,9 @@
     }
 
     function renderDesktopMenu() {
-      document.getElementById("desktop-ecosystem-menu").innerHTML = projectsData.map(project => `
+      const menu = document.getElementById("desktop-ecosystem-menu");
+      if (!menu) return;
+      menu.innerHTML = projectsData.map(project => `
         <a href="${project.internalUrl}" class="group p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-colors focus-ring">
           <div class="flex gap-3">
             <span class="shrink-0 w-11 h-11 rounded-xl bg-slate-950 text-orange-300 flex items-center justify-center">${icon(project.icon)}</span>
@@ -878,6 +1110,22 @@
               <h3 class="text-xl font-black text-slate-950 mb-3">Casos de uso</h3>
               <ul class="space-y-2 text-slate-600">${project.useCases.map(item => `<li class="flex gap-2">${icon("check-circle", "w-5 h-5 text-cyan-600 mt-0.5 shrink-0")}<span>${item}</span></li>`).join("")}</ul>
             </section>
+            ${project.internalModules ? `
+              <section>
+                <h3 class="text-xl font-black text-slate-950 mb-3">${project.internalModulesLabel || "Modulos internos por nicho"}</h3>
+                <div class="grid gap-3">
+                  ${project.internalModules.map(module => `
+                    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <h4 class="font-black text-slate-950 mb-2">${module.title}</h4>
+                      <p class="text-sm text-slate-600 leading-relaxed mb-3">${module.description}</p>
+                      <div class="flex flex-wrap gap-2">
+                        ${module.items.map(item => `<span class="rounded-full bg-white border border-slate-200 px-3 py-1 text-xs font-bold text-slate-700">${item}</span>`).join("")}
+                      </div>
+                    </article>
+                  `).join("")}
+                </div>
+              </section>
+            ` : ""}
           </div>
           <div>
             ${projectVisual(project)}
@@ -925,6 +1173,39 @@
         return;
       }
       startConversation(`Quiero conocer el link externo o demo de ${project.name}`);
+    }
+
+    function openLaunchpad() {
+      document.getElementById("modal-badge").textContent = "Nativos Launchpad";
+      document.getElementById("modal-title").textContent = "NATIVOS LAUNCHPAD";
+      document.getElementById("modal-tagline").textContent = "Queres comprar un proyecto ya funcionando?";
+      document.getElementById("modal-body").innerHTML = `
+        <div class="grid lg:grid-cols-[1fr_.85fr] gap-8 items-stretch">
+          <section class="rounded-3xl bg-slate-950 text-white p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/18 via-transparent to-orange-500/18"></div>
+            <div class="relative z-10">
+              <p class="text-cyan-200 font-extrabold uppercase tracking-[0.22em] text-xs mb-4">Marketplace propio</p>
+              <h3 class="text-3xl md:text-4xl font-black mb-4">Proyectos digitales listos para adaptar, comprar y lanzar.</h3>
+              <p class="text-slate-300 leading-relaxed text-lg">Nativos Launchpad va a reunir proyectos ya funcionando, con demo, modulos, alcance, estado tecnico y posibilidad de implementacion para empresas, instituciones o emprendedores que quieren salir rapido al mercado.</p>
+              <div class="grid sm:grid-cols-3 gap-3 mt-7">
+                <div class="rounded-2xl bg-white/8 border border-white/10 p-4"><p class="font-black">Listos</p><p class="text-sm text-slate-300 mt-1">Bases funcionales</p></div>
+                <div class="rounded-2xl bg-white/8 border border-white/10 p-4"><p class="font-black">Adaptables</p><p class="text-sm text-slate-300 mt-1">Marca y nicho</p></div>
+                <div class="rounded-2xl bg-white/8 border border-white/10 p-4"><p class="font-black">Vendibles</p><p class="text-sm text-slate-300 mt-1">Salida comercial</p></div>
+              </div>
+            </div>
+          </section>
+          <section class="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8 flex flex-col justify-center">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-400 text-slate-950 flex items-center justify-center mb-5">${icon("rocket", "w-8 h-8")}</div>
+            <h3 class="text-2xl font-black text-slate-950 mb-3">Queres ver oportunidades disponibles?</h3>
+            <p class="text-slate-600 leading-relaxed mb-7">La pagina de venta se va a conectar aca para mostrar proyectos, precios, demos y condiciones de compra o implementacion.</p>
+            <a href="nativos-launchpad.html" class="magnetic-btn inline-flex justify-center items-center gap-2 bg-cyan-400 hover:bg-cyan-300 text-slate-950 px-5 py-3 rounded-xl font-black transition-colors focus-ring">
+              Ir a Nativos Launchpad ${icon("arrow-right", "w-5 h-5")}
+            </a>
+          </section>
+        </div>
+      `;
+      showModal(true);
+      lucide.createIcons();
     }
 
     function startConversation(message) {
@@ -983,7 +1264,6 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderProjects();
-      renderProjectShowcases();
       renderModules();
       renderProductLab();
       renderSectors();
