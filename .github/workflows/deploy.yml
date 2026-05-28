@@ -12,25 +12,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Prepare deploy directory
+        run: |
+          mkdir -p _deploy
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='AUDIT.md' \
+            --exclude='_hostinger-upload' \
+            --exclude='_deploy' \
+            --exclude='**/.env' \
+            --exclude='**/.env.local' \
+            --exclude='**/config.local.php' \
+            ./ _deploy/
+          echo "--- Contenido de _deploy ---"
+          ls -la _deploy/
+
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          protocol: ftps
-          server-dir: ./public_html/
-          local-dir: ./
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/.env
-            **/.env.local
-            **/.env.*.local
-            **/config.local.php
-            AUDIT.md
-            _hostinger-upload/**
+          local_path: './_deploy/*'
+          remote_path: '/home/u545413471/domains/nativosconsultora.com.ar/public_html'
+          sftp_only: true
+          delete_remote_files: false
