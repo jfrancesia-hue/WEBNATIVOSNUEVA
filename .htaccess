@@ -1,0 +1,23 @@
+# Blindaje raiz de public_html para nativosconsultora.com.ar
+# Compatible con Apache 2.4+ y LiteSpeed (Hostinger)
+
+# Bloquear archivos de configuracion (config.local.php, .env, etc)
+<FilesMatch "^(config\.local\.php|config\..*\.php|\.env|\.env\..*)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear logs y dumps sueltos en raiz
+<FilesMatch "\.(log|sql|sqlite|sqlite3|db|bak|backup|swp|tmp|orig|save)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear listado de directorios
+Options -Indexes
+
+# Headers de seguridad basicos
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>

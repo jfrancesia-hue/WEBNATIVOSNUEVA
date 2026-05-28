@@ -32,7 +32,21 @@ function load_smtp_config(): array {
     ];
 
     $localPath = __DIR__ . '/config.local.php';
-    $local = file_exists($localPath) ? (array)require $localPath : [];
+    $local = [];
+
+    if (file_exists($localPath)) {
+        // Buffer cualquier output del require, asi si el archivo esta
+        // mal formado (ej. sin <?php) no se filtra a la respuesta HTTP.
+        ob_start();
+        $loaded = require $localPath;
+        ob_end_clean();
+
+        if (is_array($loaded)) {
+            $local = $loaded;
+        } else {
+            error_log('[send.php] config.local.php no devuelve array (probable falta de <?php inicial)');
+        }
+    }
 
     return array_merge($defaults, $local);
 }
