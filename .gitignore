@@ -1,4 +1,6 @@
 .env
+.env.local
+.env.*.local
 config.local.php
 *.log
 *.sqlite
@@ -7,3 +9,7 @@ config.local.php
 *.zip
 .DS_Store
 Thumbs.db
+
+# Marketplace caches (se regeneran solos desde Supabase)
+marketplace/storage/cache/*.json
+marketplace/storage/contact.log

@@ -1,0 +1,26 @@
+# Blindaje de archivos sensibles en /marketplace/
+# Compatible con Apache 2.4+ y LiteSpeed (Hostinger)
+
+# Bloquear archivos de configuracion (.env, .env.example, .env.local, etc.)
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+# Bloquear logs y SQL sueltos
+<FilesMatch "\.(log|sql|sqlite|sqlite3|db)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear backups y archivos temporales tipicos
+<FilesMatch "\.(bak|backup|swp|swo|tmp|orig|save)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear directorios sensibles completos
+RedirectMatch 403 ^/marketplace/storage/?.*$
+RedirectMatch 403 ^/marketplace/db/?.*$
+RedirectMatch 403 ^/marketplace/includes/?.*$
+RedirectMatch 403 ^/marketplace/certs/?.*$
+
+# Opcional: deshabilitar listado de directorios
+Options -Indexes
