@@ -3,12 +3,39 @@ declare(strict_types=1);
 
 /**
  * Form de contacto de la landing.
- * Envia los mensajes a contacto@nativosconsultora.com.ar via mail() nativo.
- * No requiere SMTP configurado: usa el relay del propio Hostinger.
+ * Envia los mensajes via SMTP de Google Workspace (smtp.gmail.com).
  *
- * Importante: el buzon contacto@nativosconsultora.com.ar debe existir en
- * hPanel -> Emails -> Email Accounts para que el correo sea entregado.
+ * Credenciales: vienen de config.local.php (no commiteado, vive solo en Hostinger).
+ * El archivo config.local.php debe estar en el mismo directorio que este script.
+ *
+ * Para configurar: copiar config.example.php como config.local.php y completar
+ * con el App Password generado en https://myaccount.google.com/apppasswords
  */
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
+require __DIR__ . '/phpmailer/src/Exception.php';
+require __DIR__ . '/phpmailer/src/PHPMailer.php';
+require __DIR__ . '/phpmailer/src/SMTP.php';
+
+function load_smtp_config(): array {
+    $defaults = [
+        'host'        => 'smtp.gmail.com',
+        'port'        => 587,
+        'username'    => '',
+        'password'    => '',
+        'from_email'  => 'jorge@nativosconsultora.com.ar',
+        'from_name'   => 'Web Nativos',
+        'to_email'    => 'jorge@nativosconsultora.com.ar',
+        'to_name'     => 'Jorge Francesia',
+    ];
+
+    $localPath = __DIR__ . '/config.local.php';
+    $local = file_exists($localPath) ? (array)require $localPath : [];
+
+    return array_merge($defaults, $local);
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(403);
@@ -29,49 +56,57 @@ if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL
     exit;
 }
 
-$to      = 'contacto@nativosconsultora.com.ar';
-$from    = 'contacto@nativosconsultora.com.ar';
-$subject = 'Nuevo mensaje desde la web';
-
-// Anti CRLF-injection en headers
-$safeName  = preg_replace('/[\r\n]+/', ' ', $name)  ?? '';
-$safeEmail = preg_replace('/[\r\n]+/', ' ', $email) ?? '';
-
-$body  = "Nuevo mensaje desde el formulario de Nativos Consultora.\n\n";
-$body .= "Nombre:       {$safeName}\n";
-$body .= "Email:        {$safeEmail}\n";
-if ($company !== '') $body .= "Organizacion: {$company}\n";
-$body .= "Fecha:        " . date('Y-m-d H:i:s') . "\n";
-$body .= "IP:           " . ($_SERVER['REMOTE_ADDR'] ?? '-') . "\n";
-$body .= str_repeat('-', 60) . "\n\n";
-$body .= $message . "\n";
-
-$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-
-$fromHeader = sprintf(
-    '"%s via Nativos" <%s>',
-    addslashes($safeName !== '' ? $safeName : 'Web'),
-    $from
-);
-
-$headers = implode("\r\n", [
-    'From: ' . $fromHeader,
-    'Reply-To: ' . $safeEmail,
-    'X-Mailer: PHP/' . PHP_VERSION,
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-]);
-
-$additionalParams = '-f ' . escapeshellarg($from);
-
-$sent = @mail($to, $encodedSubject, $body, $headers, $additionalParams);
-
-if (!$sent) {
-    error_log('[send.php] mail() devolvio false para visitante ' . $safeEmail);
+$config = load_smtp_config();
+if ($config['username'] === '' || $config['password'] === '') {
     http_response_code(500);
-    echo 'Error al enviar';
+    error_log('[send.php] config.local.php sin credenciales SMTP');
+    echo 'Configuracion SMTP incompleta';
     exit;
 }
 
-echo 'OK';
+$safeName  = preg_replace('/[\r\n]+/', ' ', $name)  ?? '';
+$safeEmail = preg_replace('/[\r\n]+/', ' ', $email) ?? '';
+
+$mail = new PHPMailer(true);
+
+try {
+    $mail->isSMTP();
+    $mail->Host       = $config['host'];
+    $mail->SMTPAuth   = true;
+    $mail->Username   = $config['username'];
+    $mail->Password   = $config['password'];
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = (int)$config['port'];
+    $mail->CharSet    = 'UTF-8';
+
+    $mail->setFrom($config['from_email'], $config['from_name']);
+    $mail->addAddress($config['to_email'], $config['to_name']);
+    $mail->addReplyTo($safeEmail, $safeName);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Nuevo mensaje desde la web';
+
+    $bodyHtml  = '<h3>Nuevo mensaje desde el formulario de Nativos Consultora</h3>';
+    $bodyHtml .= '<p><strong>Nombre:</strong> ' . htmlspecialchars($safeName, ENT_QUOTES, 'UTF-8') . '</p>';
+    if ($company !== '') {
+        $bodyHtml .= '<p><strong>Organizacion:</strong> ' . htmlspecialchars($company, ENT_QUOTES, 'UTF-8') . '</p>';
+    }
+    $bodyHtml .= '<p><strong>Email:</strong> ' . htmlspecialchars($safeEmail, ENT_QUOTES, 'UTF-8') . '</p>';
+    $bodyHtml .= '<p><strong>Fecha:</strong> ' . date('Y-m-d H:i:s') . '</p>';
+    $bodyHtml .= '<p><strong>Mensaje:</strong><br>' . nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8')) . '</p>';
+    $mail->Body = $bodyHtml;
+
+    $altBody  = "Nombre: {$safeName}\n";
+    if ($company !== '') $altBody .= "Organizacion: {$company}\n";
+    $altBody .= "Email: {$safeEmail}\n";
+    $altBody .= "Fecha: " . date('Y-m-d H:i:s') . "\n";
+    $altBody .= "\nMensaje:\n{$message}\n";
+    $mail->AltBody = $altBody;
+
+    $mail->send();
+    echo 'OK';
+} catch (Exception $e) {
+    error_log('[send.php] PHPMailer error: ' . $mail->ErrorInfo);
+    http_response_code(500);
+    echo 'Error al enviar';
+}
