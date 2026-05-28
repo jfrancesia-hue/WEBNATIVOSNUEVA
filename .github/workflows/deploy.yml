@@ -35,7 +35,7 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local_path: './_deploy/*'
+          local_path: './_deploy/'
           remote_path: '/home/u545413471/domains/nativosconsultora.com.ar/public_html'
           sftp_only: true
           delete_remote_files: false
